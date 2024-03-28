@@ -1,0 +1,37 @@
+<!-- <form action="">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Name">
+    <input type="text" [(ngModel)]="surname" name="surname" placeholder="Surname">
+    <input type="text" [(ngModel)]="email" name="email" placeholder="Email">
+    <input type="text" [(ngModel)]="password" name="password" placeholder="Password">
+    <button (click)="doSignUp()">Sign Up!</button>
+    <p *ngIf="signUpResult">{{signUpResult}}</p>
+</form> -->
+<h4 class="productCategorySectionTitle">Sign Up</h4>
+<div class="login-container">
+    <form (ngSubmit)="doSignUp()" #loginForm="ngForm" style="text-align: center;">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" class="form-control" [(ngModel)]="surname" name="surname" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
+      </div>      
+        <div class="form-group">
+          <label for="password">User's Role:</label>
+          <select  name="role" class="form-control" placeholder="User's role" [(ngModel)]="role" required>
+              <option *ngFor="let role of roleList" [value]="role" placeholder="User's Role">{{role}}</option>
+          </select>
+        </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Sign Up</button>
+      <p *ngIf="signUpResult.message">{{signUpResult.message}}</p>
+    </form>
+</div>

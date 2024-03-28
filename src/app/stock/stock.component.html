@@ -1,0 +1,25 @@
+<h4 class="stockSectionTitle">Stock</h4>
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Category</th>
+        <th scope="col">SubCategory</th>
+        <th scope="col">Price</th>
+        <th scope="col">In Stock</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stockList">
+        <th routerLink="/product/{{stock.product.id}}" scope="row">{{stock.product.id}}</th>
+        <td routerLink="/product/{{stock.product.id}}">{{stock.product.name}}</td>
+        <td routerLink="/brand/{{stock.product.brandName}}">{{stock.product.brandName}}</td>
+        <td routerLink="/category/{{stock.product.subCategory.category.name}}">{{stock.product.subCategory.category.name}}</td>
+        <td routerLink="/subcategory/{{stock.product.subCategory.name}}">{{stock.product.subCategory.name}}</td>
+        <td>{{stock.product.price}}</td>
+        <td>{{stock.stockQuantity}}</td>
+      </tr>
+    </tbody>
+  </table>

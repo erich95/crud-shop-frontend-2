@@ -1,0 +1,39 @@
+<!-- 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+
+
+<h4 class="productCategorySectionTitle">Products List</h4>
+<div class="row row-cols-1 row-cols-md-6 g-4" style="margin-right: 0px;">
+    <p *ngIf="deleteResult">{{deleteResult}}</p>
+    <div class="col" *ngFor="let product of productsList; index as i">
+        <div class="card h-100" >
+          <img [src]="product.imgUrl" class="card-img-top" routerLink="/product/{{product.id}}" />
+          <div class="card-body">
+            <h4 class="card-title">{{product.name}}</h4>
+            <h5 class="card-title" routerLink="/brand/{{product.brandName}}">{{product.brandName}}</h5>
+            <div class="cartDetailContainer">
+                <p class="card-title cardDetailCat" routerLink="/category/{{product.subCategory.category.name}}">{{product.subCategory.category.name}} </p>
+                <p class="card-title cardDetailCat"> > </p>
+                <p class="card-title cardDetailCat" routerLink="/subcategory/{{product.subCategory.name}}"> {{product.subCategory.name}}</p>
+            </div>
+            <p class="card-text">{{product.price | currency}}</p>
+          </div>
+          <div>
+            <button (click)="cartClick(i, product.id)" [ngClass]="{'clicked': clickedButtons[i]}" class="cart-button" style="width: 100%;height: 50px;">
+                    <span class="add-to-cart" *ngIf="!clickedButtons[i]">Add to cart</span>
+                    <span class="added" *ngIf="clickedButtons[i]">Added</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-box" *ngIf="clickedButtons[i]"></i>
+            </button>
+            <button type="button" style="width: 50%;" class="btn btn-primary" data-mdb-ripple-init routerLink="/productModify/{{product.id}}">Modify</button>
+            <button type="button" style="width: 50%;" class="btn btn-danger" data-mdb-ripple-init (click)="deleteProduct(product.id)">Delete</button>            
+          </div>
+        </div>
+    </div>
+</div>

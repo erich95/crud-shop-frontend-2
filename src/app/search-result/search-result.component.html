@@ -1,0 +1,98 @@
+<h4 class="productSearchList">Search results</h4>
+<div class="d-flex container">
+    <!-- <div class="overflow-auto" style="height: 823px"> -->
+    <div style="height: 823px">
+      <div class="card m-2" style="/*max-width: 540px;*/" *ngFor="let product of productsList">
+          <div class="row g-0" style="width: 1300px;">
+              <div class="col-md-4">
+                  <img [src]="product.imgUrl" class="img-fluid rounded-start img" style="width: 174px;" routerLink="/product/{{product.id}}"/>
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <h6 class="card-title">{{product.brandName}}</h6>
+                      <div class="cartDetailContainer">
+                          <p class="card-title cardDetailCat" routerLink="/category/{{product.subCategory.category.name}}">{{product.subCategory.category.name}} </p>
+                          <p class="card-title cardDetailCat"> > </p>
+                          <p class="card-title cardDetailCat" routerLink="/subcategory/{{product.subCategory.name}}"> {{product.subCategory.name}}</p>
+                      </div>
+                      <p class="card-text" style="margin-bottom: 0px;">{{product.description}}</p>
+                      <p class="card-text"><small class="text-muted">{{product.price | currency}}</small></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- <div class="card m-2" style="/*max-width: 540px;*/">
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp" class="img-fluid rounded-start img" />
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                          This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      </p>
+                      <p class="card-text">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="card m-2" style="/*max-width: 540px;*/">
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp" class="img-fluid rounded-start img" />
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                          This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      </p>
+                      <p class="card-text">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="card m-2" style="/*max-width: 540px;*/">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp" class="img-fluid rounded-start img" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card m-2" style="/*max-width: 540px;*/">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp" class="img-fluid rounded-start img" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    </div>
+</div>

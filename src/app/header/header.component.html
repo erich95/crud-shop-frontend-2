@@ -1,0 +1,81 @@
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">SHOP</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup">Sign Up</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/cart">Cart</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product Sections
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/products">Products</a></li>
+              <li><a class="dropdown-item" routerLink="/addProducts">Add Products</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="/stock">Manage Stock</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" *ngIf ="categoryList !== undefined && categoryList.length > 0">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"> Select Category</a>
+            <ul class="dropdown-menu">
+                <li *ngFor="let category of categoryList" style="text-align: left;" routerLink="category/{{category.name}}">
+                    <a class="dropdown-item">{{category.name}}</a>
+                </li>
+            </ul>
+          </li>
+          
+        </ul>
+        <div class="dropdown-user text-end">
+          <a href="#" class="nav-link dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg> -->
+          </a>
+          <ul class="dropdown-menu text-small ulContainer" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);">
+            <li routerLink="/cart/{{idUser}}"><a class="dropdown-item">My Cart<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16" style="float: right;">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg></a></li>
+            <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
+            <li routerLink="/userSettings"><a class="dropdown-item">Profile Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="signOut()">Sign out</a></li>
+          </ul>
+        </div>
+        
+        <!-- <div class="">      
+          <ul class="navbar-right">
+            <li><a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+          </ul> 
+        </div>         -->
+
+        <!-- <li class="nav-item dropdown" *ngIf ="categoryList !== undefined && categoryList.length > 0">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"> Cart</a>
+          <ul class="dropdown-menu">
+              <li *ngFor="let category of categoryList" style="text-align: left;" routerLink="category/{{category.name}}">
+                  <a class="dropdown-item">{{category.name}}</a>
+              </li>
+          </ul>
+        </li> -->
+         
+        <form class="d-flex" role="search" (mouseover)="checkSearchInputValue()" (keydown)="checkSearchInputValue()">
+          <input class="form-control me-2" name="searchText" type="text" placeholder="Search" aria-label="Search"  [(ngModel)]="searchText">          
+          <button class="btn btn-outline-success" type="submit" [routerLink]="['/search', searchText]">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav> 
